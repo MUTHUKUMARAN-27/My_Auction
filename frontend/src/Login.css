@@ -1,0 +1,97 @@
+.login-page {
+    min-height: 100vh;
+    background: url('/background.png') no-repeat center center / cover fixed;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-blend-mode: overlay;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: white;
+  }
+  
+  .logo {
+    font-size: 24px; 
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 32px; 
+    align-items: center;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+  }
+
+main {
+  padding-top: 80px;
+}
+
+
+.login-container {
+  background-color: white;
+  padding: 32px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px; 
+  font-size: 24px; 
+}
+
+.form-group {
+  margin-bottom: 16px; 
+}
+
+label {
+  display: block;
+  margin-bottom: 8px; 
+  font-size: 14.4px; 
+}
+
+input {
+  width: 100%;
+  padding: 8px; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px; 
+}
+
+.sign-in-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px; 
+  cursor: pointer;
+  margin-top: 16px; 
+}
+
+.sign-in-btn:hover {
+  background-color: #444;
+}
+
+.forgot-password {
+  display: block;
+  text-align: center;
+  margin-top: 16px; 
+  color: #666;
+  text-decoration: none;
+  font-size: 14.4px; 
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
