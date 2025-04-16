@@ -1,0 +1,99 @@
+.form-container {
+  max-width: 600px;
+  margin: 30px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.form-container h2 {
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.subheading {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.two-columns {
+  display: flex;
+  gap: 20px;
+}
+
+.upload-box {
+  border: 2px dashed #ccc;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.upload-box img {
+  width: 40px;
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+.upload-link {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.readonly {
+  background-color: #f4f4f4;
+  color: #666;
+}
+
+.note {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 20px;
+  display: block;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

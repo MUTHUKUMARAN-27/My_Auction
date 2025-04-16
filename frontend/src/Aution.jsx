@@ -1,15 +1,15 @@
-import Navbar from "./components/Navbar"
-import Sidebar from "./components/Sidebar"
-import AuctionContent from "./components/AuctionContent"
 import "./Aution.css"
+import Sidebar from "./components/user/Sidebar"
+import Navbar from "./components/user/Navbar"
+import { Outlet } from "react-router-dom"
 
 export default function Aution() {
   return (
     <div className="auction-page">
-      <Navbar />
+      <Navbar/>
       <div className="main-container">
-        <Sidebar />
-        <AuctionContent />
+        <Sidebar/>
+        <Outlet />
       </div>
     </div>
   )

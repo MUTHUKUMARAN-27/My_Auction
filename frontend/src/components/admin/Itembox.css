@@ -1,0 +1,154 @@
+.item-box {
+    width: 270px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 10px 15px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    position: relative;
+    
+  }
+  
+  .item-header {
+    display: flex;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .item-status {
+    background-color: #007bff;
+    color: white;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 20px;
+  }
+  
+  .item-image-container {
+    background-color: #f2f2f2;
+    height: 160px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    overflow: hidden;
+    border: 1px solid #ddd;
+  }
+  
+  .item-image {
+    max-height: 100%;
+    width: auto;
+  }
+  
+  .item-no-image {
+    font-size: 28px;
+    color: #888;
+  }
+  
+  .item-body {
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .item-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .item-description {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .current-bid {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .item-seller {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  .admin-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .approve-button,
+  .reject-button,
+  .details-button {
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .approve-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .reject-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .approve-button:hover {
+    background-color: #218838;
+  }
+  
+  .reject-button:hover {
+    background-color: #c82333;
+  }
+  
+  .item-footer {
+    margin-top: 10px;
+  }
+  
+  .details-button {
+    background-color: #333;
+    color: white;
+    width: 100%;
+  }
+  
+  .details-button:hover {
+    background-color: #000;
+  }
+  .detail-label {
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .detail-value {
+    color: #222;
+  }
+  
+  .current-bid {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .item-seller {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  

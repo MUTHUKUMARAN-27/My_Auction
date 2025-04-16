@@ -1,0 +1,119 @@
+.my-auctions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 16px;
+  }
+  
+  .my-auctions-header {
+    margin-bottom: 32px;
+  }
+  
+  .my-auctions-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .my-auctions-subtitle {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .no-auctions {
+    text-align: center;
+    padding: 48px 0;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px dashed #ccc;
+  }
+  
+  .no-auctions-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: #999;
+  }
+  
+  .no-auctions-message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 24px;
+  }
+  
+  .create-auction-button {
+    display: inline-block;
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .create-auction-button:hover {
+    background-color: #0055aa;
+  }
+  
+  .auctions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .auctions-count {
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .item-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    flex: 1;
+    padding: 8px 0;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+  }
+  
+  .edit-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+  
+  .edit-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .delete-button {
+    background-color: #fff0f0;
+    color: #cc0000;
+    border: 1px solid #ffcccc;
+  }
+  
+  .delete-button:hover {
+    background-color: #ffe0e0;
+  }
+  
+  @media (min-width: 768px) {
+    .auctions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .auctions-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  

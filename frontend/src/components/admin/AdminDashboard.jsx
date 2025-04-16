@@ -1,53 +1,51 @@
-"use client"
-
-import { useState } from "react"
-import AdminHeader from "./AdminHeader"
-import AdminSidebar from "./AdminSidebar"
-import AdminContent from "./AdminContent"
-import "./AdminDashboard.css"
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Itembox from "./Itembox";
+import "./AdminDashboard.css"; // Make sure this file exists and is linked
 
 export default function AdminDashboard() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [activeFilter, setActiveFilter] = useState("new")
+  const [pendingItems, setPendingItems] = useState([]);
+
+  useEffect(() => {
+    fetchPendingItems();
+  }, []);
+
+  const fetchPendingItems = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/auth/items/pending");
+      setPendingItems(res.data);
+    } catch (err) {
+      console.error("Error fetching items:", err);
+    }
+  };
+
+  const handleVerification = async (itemId, status) => {
+    try {
+      await axios.put(`http://localhost:5000/api/auth/items/verify/${itemId}`, { status });
+      alert(`Item ${status === "approved" ? "Approved" : "Rejected"} successfully!`);
+      fetchPendingItems();
+    } catch (err) {
+      console.error("Error updating item:", err);
+    }
+  };
 
   return (
     <div className="admin-dashboard">
-      <AdminHeader />
-      <div className="dashboard-content">
-        <AdminSidebar />
-        <main className="main-content">
-          <div className="search-bar">
-            <input
-              type="search"
-              placeholder="Search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+      <h2 className="admin-title">Pending Auction Approvals</h2>
+      {pendingItems.length === 0 ? (
+        <p className="admin-empty">No pending items found.</p>
+      ) : (
+        <div className="admin-item-grid">
+          {pendingItems.map((item) => (
+            <Itembox
+              key={item._id}
+              item={item}
+              isAdmin={true}
+              onVerify={handleVerification}
             />
-          </div>
-          <div className="filters">
-            <button className={activeFilter === "new" ? "active" : ""} onClick={() => setActiveFilter("new")}>
-              New
-            </button>
-            <button
-              className={activeFilter === "price-asc" ? "active" : ""}
-              onClick={() => setActiveFilter("price-asc")}
-            >
-              Price ascending
-            </button>
-            <button
-              className={activeFilter === "price-desc" ? "active" : ""}
-              onClick={() => setActiveFilter("price-desc")}
-            >
-              Price descending
-            </button>
-            <button className={activeFilter === "rating" ? "active" : ""} onClick={() => setActiveFilter("rating")}>
-              Rating
-            </button>
-          </div>
-          <AdminContent searchQuery={searchQuery} activeFilter={activeFilter} />
-        </main>
-      </div>
+          ))}
+        </div>
+      )}
     </div>
-  )
+  );
 }
-

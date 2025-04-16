@@ -1,0 +1,261 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+  
+  .modal-container {
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    z-index: 10;
+  }
+  
+  .modal-close:hover {
+    color: #000;
+  }
+  
+  .item-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .item-image-container {
+    width: 100%;
+    height: 300px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .item-placeholder {
+    text-align: center;
+  }
+  
+  .item-placeholder-icon {
+    font-size: 64px;
+    color: #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .item-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .status-upcoming {
+    background-color: #e6f0ff;
+    color: #0055cc;
+  }
+  
+  .status-ongoing {
+    background-color: #e6ffea;
+    color: #00802b;
+  }
+  
+  .status-completed {
+    background-color: #f0f0f0;
+    color: #666;
+  }
+  
+  .item-content {
+    padding: 20px;
+  }
+  
+  .item-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+  
+  .item-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+  }
+  
+  .item-category {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .item-description {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .item-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detail-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .detail-value {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .bid-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+    border-top: 1px solid #eee;
+  }
+  
+  .bid-now-button {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+  }
+  
+  .bid-now-button:hover {
+    background-color: #ff7875;
+  }
+  
+  .bid-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .bid-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .bid-history-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+  }
+  
+  .no-bids {
+    color: #666;
+    font-style: italic;
+  }
+  
+  @media (max-width: 600px) {
+    .item-details-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .bid-section {
+    margin-top: 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid #ccc;
+  }
+  
+  .bid-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .bid-input-row,
+  .bid-button-row,
+  .bid-cancel-row {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .bid-input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+  }
+  
+  .bid-now-button,
+  .cancel-button {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .bid-now-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .bid-now-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  .cancel-button {
+    background-color: #ccc;
+    color: #333;
+  }
+  .bid-closed-message {
+    font-style: italic;
+    color: #888;
+    padding: 10px;
+  }
+  

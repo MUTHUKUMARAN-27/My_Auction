@@ -5,18 +5,18 @@ import './Register.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    username: '', 
     email: '',
     password: '',
     confirmPassword: '',
     role: ''
   });
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
 
   const validateForm = () => {
     let formErrors = {};
-    
-    if (!formData.name.trim()) formErrors.name = 'Full Name is required';
+    if (!formData.username.trim()) formErrors.username = 'Username is required';
     if (!formData.email.trim()) {
       formErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -31,7 +31,6 @@ const Register = () => {
     if (!formData.role) {
       formErrors.role = 'Please select a role';
     }
-    
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
   };
@@ -42,17 +41,22 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      try {
-        const response = await axios.post('http://localhost:5000/api/register', formData);
-        alert(response.data.message);
-      } catch (error) {
-        console.error('Registration failed', error);
-        alert('Registration failed. Try again!');
-      }
+  
+    if (!validateForm()) return;
+  
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/auth/register",
+        formData, 
+        { headers: { "Content-Type": "application/json" } }
+      );
+  
+      console.log("Registration successful:", response.data);
+      setSuccessMessage('Registration successful! You can now log in.');
+    } catch (error) {
+      console.error("Registration failed:", error.response?.data || error.message);
     }
   };
-
   return (
     <div className="register-page">
       <nav className="navbar">
@@ -68,33 +72,33 @@ const Register = () => {
       <main>
         <div className="register-container">
           <h1>Register</h1>
+          {successMessage && <p className="success-message">{successMessage}</p>}
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input type="text" id="name" onChange={handleChange} placeholder="Enter your full name" />
-              {errors.name && <p className="error">{errors.name}</p>}
+              <label htmlFor="username">Username</label>
+              <input type="text" id="username" value={formData.username} onChange={handleChange} placeholder="Enter your username" />
+              {errors.username && <p className="error">{errors.username}</p>}
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="email" id="email" onChange={handleChange} placeholder="Enter your email" />
+              <input type="email" id="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" />
               {errors.email && <p className="error">{errors.email}</p>}
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" id="password" onChange={handleChange} placeholder="Enter your password" />
+              <input type="password" id="password" value={formData.password} onChange={handleChange} placeholder="Enter your password" />
               {errors.password && <p className="error">{errors.password}</p>}
             </div>
             <div className="form-group">
               <label htmlFor="confirmPassword">Confirm Password</label>
-              <input type="password" id="confirmPassword" onChange={handleChange} placeholder="Confirm your password" />
+              <input type="password" id="confirmPassword" value={formData.confirmPassword} onChange={handleChange} placeholder="Confirm your password" />
               {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
             </div>
             <div className="form-group">
               <label htmlFor="role">Role</label>
-              <select id="role" onChange={handleChange}>
+              <select id="role" value={formData.role} onChange={handleChange}>
                 <option value="">Select your role</option>
-                <option value="seller">Seller</option>
-                <option value="buyer">Buyer</option>
+                <option value="user">User</option>
               </select>
               {errors.role && <p className="error">{errors.role}</p>}
             </div>

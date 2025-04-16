@@ -1,30 +1,28 @@
-import "./AdminSidebar.css";
 
-export default function AdminSidebar() {
+import { NavLink } from "react-router-dom";
+import "./AdminSidebar.css";
+export default function AdminSidebar(){
   return (
     <aside className="sidebar">
       <nav className="side-nav">
-        <a href="/admin" className="nav-item active">
-          <span className="icon">🏠</span> <span>Dashboard</span>
-        </a>
-        <a href="/admin/products/pending" className="nav-item">
-          <span className="icon">📦</span> <span>Pending Products</span>
-        </a>
-        <a href="/admin/products/approved" className="nav-item">
-          <span className="icon">🛒</span> <span>Approved Products</span>
-        </a>
-        <a href="/admin/auctions" className="nav-item">
-          <span className="icon">🔨</span> <span>Active Auctions</span>
-        </a>
-        <a href="/admin/users" className="nav-item">
-          <span className="icon">👤</span> <span>Users</span>
-        </a>
-        <a href="/admin/analytics" className="nav-item">
-          <span className="icon">📊</span> <span>Analytics</span>
-        </a>
-        <a href="/admin/settings" className="nav-item">
-          <span className="icon">⚙️</span> <span>Settings</span>
-        </a>
+        <NavLink to="/admindashboard" className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}>
+        <span className="icon">📦</span> <span>Pending Products</span>
+        </NavLink>
+        <NavLink to="/admindashboard/approvedproducts" className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}>
+        <span className="icon">🛒</span> <span>Approved Products</span>
+        </NavLink>
+        <NavLink to="/admindashboard/winners" className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}>
+        <span className="icon">🏆</span> <span>Winners</span>
+        </NavLink>
+        <NavLink to="/admindashboard/users" className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}>
+        <span className="icon">👤</span> <span>Users</span>
+        </NavLink>
+        <NavLink to="/admindashboard/transaction" className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}>
+        <span className="icon">💰</span><span>Transaction</span>
+        </NavLink>
+        <NavLink to="/admindashboard/settings" className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}>
+          <span className="icon">⚙️</span><span>Settings</span>
+        </NavLink>
       </nav>
     </aside>
   );
